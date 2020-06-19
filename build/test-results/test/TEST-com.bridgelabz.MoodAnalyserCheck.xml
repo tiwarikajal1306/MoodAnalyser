@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.bridgelabz.MoodAnalyserCheck" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-06-19T14:36:21" hostname="KAJAL-LAPTOP" time="0.002">
+  <properties/>
+  <testcase name="message_Contain_IamInSadMood_Should_return_Sad" classname="com.bridgelabz.MoodAnalyserCheck" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
