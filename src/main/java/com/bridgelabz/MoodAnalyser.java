@@ -10,14 +10,16 @@ public class MoodAnalyser {
         this.message=message;
     }
 
-    public String analyseMood() {
+    public String analyseMood() throws MoodAnalysisException{
         try {
+            if (message.length() == 0)
+                throw new MoodAnalysisException(MoodAnalysisException.ExceptionType.EnteredEmpty, "Entered valid msg");
             if (message.contains("i am in sad mood"))
                 return "SAD";
             else if (message.contains("i am in Happy mood"))
                 return "HAPPY";
         } catch (NullPointerException e) {
-            return "HAPPY";
+           throw new MoodAnalysisException(MoodAnalysisException.ExceptionType.EnteredNull, "Entered valid msg");
         }
         return null;
     }
