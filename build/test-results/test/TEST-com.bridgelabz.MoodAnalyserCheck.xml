@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.bridgelabz.MoodAnalyserCheck" tests="7" skipped="0" failures="0" errors="0" timestamp="2020-06-25T16:56:48" hostname="KAJAL-LAPTOP" time="0.018">
+<testsuite name="com.bridgelabz.MoodAnalyserCheck" tests="8" skipped="0" failures="0" errors="0" timestamp="2020-06-25T17:45:06" hostname="KAJAL-LAPTOP" time="0.022">
   <properties/>
-  <testcase name="givenMoodAnalyserClass_WhenNotProper_ShouldThrowException" classname="com.bridgelabz.MoodAnalyserCheck" time="0.006"/>
+  <testcase name="givenMoodAnalyserClass_WhenNotProper_ShouldThrowException" classname="com.bridgelabz.MoodAnalyserCheck" time="0.005"/>
   <testcase name="messageContain_NullMood_ShouldThrowException" classname="com.bridgelabz.MoodAnalyserCheck" time="0.002"/>
-  <testcase name="messageContain_Empty_ShouldThrowException" classname="com.bridgelabz.MoodAnalyserCheck" time="0.001"/>
-  <testcase name="givenMoodAnalyserMethod_WhenNotProper_ShouldThrowException" classname="com.bridgelabz.MoodAnalyserCheck" time="0.003"/>
-  <testcase name="givenMoodAnalyserClass_WhenProper_shouldReturnObject" classname="com.bridgelabz.MoodAnalyserCheck" time="0.001"/>
+  <testcase name="givenMessage_WhenHappy_ShouldReturnHappy" classname="com.bridgelabz.MoodAnalyserCheck" time="0.001"/>
+  <testcase name="messageContain_Empty_ShouldThrowException" classname="com.bridgelabz.MoodAnalyserCheck" time="0.0"/>
+  <testcase name="givenMoodAnalyserMethod_WhenNotProper_ShouldThrowException" classname="com.bridgelabz.MoodAnalyserCheck" time="0.008"/>
+  <testcase name="givenMoodAnalyserClass_WhenProper_shouldReturnObject" classname="com.bridgelabz.MoodAnalyserCheck" time="0.0"/>
   <testcase name="messageContain_IamInHappyMood_ShouldReturn_Happy" classname="com.bridgelabz.MoodAnalyserCheck" time="0.0"/>
   <testcase name="messageContain_IamInSadMood_ShouldReturn_Sad" classname="com.bridgelabz.MoodAnalyserCheck" time="0.001"/>
   <system-out><![CDATA[class not found

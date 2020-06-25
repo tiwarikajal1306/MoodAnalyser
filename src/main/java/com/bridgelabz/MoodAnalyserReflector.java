@@ -3,14 +3,21 @@ package com.bridgelabz;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 
-public class MoodAnalyserFactory {
+public class MoodAnalyserReflector {
     public static MoodAnalyser createMoodAnalyser(String... parameters) throws MoodAnalyserException {
         try {
-            Class<?> moodAnalyserClass = Class.forName(parameters[1]);
-            Class<?> moodAnalyserMethod = Class.forName("java.lang." +parameters[2]);
-            Constructor<?> moodConstructor = moodAnalyserClass.getConstructor(moodAnalyserMethod);
-            Object moodObj = moodConstructor.newInstance(parameters[0]);
-            return (MoodAnalyser) moodObj;
+            Class<?> moodAnalyserClass = Class.forName(parameters[0]);
+            if(parameters.length>1) {
+                Class<?> moodAnalyserMethod = Class.forName("java.lang." + parameters[1]);
+                Constructor<?> moodConstructor = moodAnalyserClass.getConstructor(moodAnalyserMethod);
+                Object moodObj = moodConstructor.newInstance(parameters[2]);
+                return (MoodAnalyser) moodObj;
+            }
+            else {
+                Constructor<?> moodConstructor = moodAnalyserClass.getConstructor();
+                Object moodObj = moodConstructor.newInstance();
+                return (MoodAnalyser) moodObj;
+            }
         } catch (ClassNotFoundException e) {
             throw new MoodAnalyserException(MoodAnalyserException.ExceptionType.ClassNotFound, "class not found");
         } catch (InstantiationException e) {

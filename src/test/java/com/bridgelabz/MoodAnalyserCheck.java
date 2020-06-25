@@ -2,9 +2,6 @@ package com.bridgelabz;
 
 import org.junit.Assert;
 import org.junit.Test;
-import org.junit.rules.ExpectedException;
-
-import java.lang.reflect.Constructor;
 
 public class MoodAnalyserCheck {
 
@@ -53,14 +50,14 @@ public class MoodAnalyserCheck {
     //TC 4.1
     @Test
     public void givenMoodAnalyserClass_WhenProper_shouldReturnObject() throws MoodAnalyserException {
-        MoodAnalyser moodAnalyser = MoodAnalyserFactory.createMoodAnalyser("I am in happy mood","com.bridgelabz.MoodAnalyser","String");
+        MoodAnalyser moodAnalyser = MoodAnalyserReflector.createMoodAnalyser("com.bridgelabz.MoodAnalyser","String","I am in happy mood");
         Assert.assertTrue(new MoodAnalyser("I am in happy mood").equals(moodAnalyser));
     }
     //Tc4.2
     @Test
     public void givenMoodAnalyserClass_WhenNotProper_ShouldThrowException()  {
         try {
-             MoodAnalyserFactory.createMoodAnalyser("I am in happy mood","com.bridgelabz.Mood","String");
+             MoodAnalyserReflector.createMoodAnalyser("com.bridgelabz.Mood","String","I am in happy mood");
         } catch (MoodAnalyserException e) {
             System.out.println(e.getMessage());
         }
@@ -69,9 +66,21 @@ public class MoodAnalyserCheck {
     @Test
     public void givenMoodAnalyserMethod_WhenNotProper_ShouldThrowException()  {
         try {
-          MoodAnalyserFactory.createMoodAnalyser("I am in happy mood","com.bridgelabz.MoodAnalyser","Integer");
+          MoodAnalyserReflector.createMoodAnalyser("com.bridgelabz.MoodAnalyser","Integer","I am in happy mood");
         } catch (MoodAnalyserException e) {
             System.out.println(e.getMessage());
         }
+    }
+    //uc6.1
+    @Test
+    public void givenMessage_WhenHappy_ShouldReturnHappy() {
+        try {
+            MoodAnalyser moodAnalyser = MoodAnalyserReflector.createMoodAnalyser
+                    ("com.bridgelabz.MoodAnalyser","String","I am in happy mood");
+            Assert.assertEquals("HAPPY", MoodAnalyserReflector.callAnalyseMood(moodAnalyser));
+        } catch (MoodAnalyserException e) {
+            System.out.println(e.getMessage());
+        }
+
     }
 }
