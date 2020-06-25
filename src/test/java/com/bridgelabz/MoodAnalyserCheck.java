@@ -5,9 +5,6 @@ import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
 import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
-
-import static java.lang.Class.forName;
 
 public class MoodAnalyserCheck {
 
@@ -59,23 +56,26 @@ public class MoodAnalyserCheck {
     }
     //TC 4.1
     @Test
-    public void givenMoodAnalyser_WhenProper_shouldReturnObject() throws MoodAnalyserException {
-        MoodAnalyser moodAnalyser=MoodAnalyserFactory.createMoodAnalyser("I am in happy mood","com.bridgelabz.MoodAnalyser");
-        Assert.assertEquals(new MoodAnalyser("I am in happy mood"),moodAnalyser);
+    public void givenMoodAnalyserClass2_WhenProper_shouldReturnObject() throws MoodAnalyserException {
+        MoodAnalyser moodAnalyser = MoodAnalyserFactory.createMoodAnalyser("I am in happy mood","com.bridgelabz.MoodAnalyser",String.class);
+        Assert.assertEquals(new MoodAnalyser("I am in happy mood"), moodAnalyser);
     }
     //Tc4.2
     @Test
-    public void givenMoodAnalyser_WhenNotProper_ShouldThrowException()  {
-        MoodAnalyser moodAnalyser= null;
+    public void givenMoodAnalyserClass_WhenNotProper_ShouldThrowException()  {
         try {
-            moodAnalyser = MoodAnalyserFactory.createMoodAnalyser("I am in happy mood","com.bridgelabz.Mood");
-            Assert.assertEquals(new MoodAnalyser("I am in happy mood"),moodAnalyser);
+             MoodAnalyserFactory.createMoodAnalyser("I am in happy mood","com.bridgelabz.Mood",String.class);
+        } catch (MoodAnalyserException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+    //tc4.3
+    @Test
+    public void givenMoodAnalyserMethod_WhenNotProper_ShouldThrowException()  {
+        try {
+          MoodAnalyserFactory.createMoodAnalyser("I am in happy mood","com.bridgelabz.MoodAnalyser",Integer.class);
         } catch (MoodAnalyserException e) {
             System.out.println(e.getMessage());
         }
     }
 }
-
-
-
-
