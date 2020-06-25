@@ -106,5 +106,17 @@ public class MoodAnalyserCheck {
             System.out.println(e.getMessage());
         }
     }
+    //uc7.2
+    @Test
+    public void givenInvalidFieldName_ShouldReturnError() {
+        try {
+            MoodAnalyser moodAnalyser = MoodAnalyserReflector.createMoodAnalyser
+                    ("com.bridgelabz.MoodAnalyser");
+            MoodAnalyserReflector.setMood(moodAnalyser,"mood","I am in Happy Mood");
+            Assert.assertEquals("HAPPY",MoodAnalyserReflector.callAnalyseMood(moodAnalyser));
+        } catch (MoodAnalyserException e) {
+            System.out.println(e.getMessage());
+        }
+    }
 
 }

@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.bridgelabz.MoodAnalyserCheck" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-06-25T18:19:13" hostname="KAJAL-LAPTOP" time="0.004">
+<testsuite name="com.bridgelabz.MoodAnalyserCheck" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-06-25T18:26:17" hostname="KAJAL-LAPTOP" time="0.015">
   <properties/>
-  <testcase name="givenHappyMessage_ShouldChangeMoodDynamically_UsingReflector" classname="com.bridgelabz.MoodAnalyserCheck" time="0.004"/>
-  <system-out><![CDATA[]]></system-out>
+  <testcase name="givenInvalidFieldName_ShouldReturnError" classname="com.bridgelabz.MoodAnalyserCheck" time="0.015"/>
+  <system-out><![CDATA[ERROR: NO SUCH FIELD
+]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
