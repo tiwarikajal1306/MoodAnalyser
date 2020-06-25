@@ -31,11 +31,12 @@ public class MoodAnalyser {
         }
 
     }
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        MoodAnalyser that = (MoodAnalyser) o;
-        return Objects.equals(message, that.message);
+
+    public boolean equals(MoodAnalyser o) {
+        if (this.message.equals(o.message)){
+            return true;
+        }
+        else
+            return false;
     }
 }

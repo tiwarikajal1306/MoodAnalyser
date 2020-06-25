@@ -56,9 +56,9 @@ public class MoodAnalyserCheck {
     }
     //TC 4.1
     @Test
-    public void givenMoodAnalyserClass2_WhenProper_shouldReturnObject() throws MoodAnalyserException {
+    public void givenMoodAnalyserClass_WhenProper_shouldReturnObject() throws MoodAnalyserException {
         MoodAnalyser moodAnalyser = MoodAnalyserFactory.createMoodAnalyser("I am in happy mood","com.bridgelabz.MoodAnalyser",String.class);
-        Assert.assertEquals(new MoodAnalyser("I am in happy mood"), moodAnalyser);
+        Assert.assertTrue(new MoodAnalyser("I am in happy mood").equals(moodAnalyser));
     }
     //Tc4.2
     @Test
