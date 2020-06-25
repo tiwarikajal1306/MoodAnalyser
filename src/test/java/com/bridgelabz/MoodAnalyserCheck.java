@@ -94,5 +94,17 @@ public class MoodAnalyserCheck {
             System.out.println(e.getMessage());
         }
     }
+    //uc7.1
+    @Test
+    public void givenHappyMessage_ShouldChangeMoodDynamically_UsingReflector() {
+        try {
+            MoodAnalyser moodAnalyser = MoodAnalyserReflector.createMoodAnalyser
+                    ("com.bridgelabz.MoodAnalyser");
+            MoodAnalyserReflector.setMood(moodAnalyser,"message","I am in Happy Mood");
+            Assert.assertEquals("HAPPY",MoodAnalyserReflector.callAnalyseMood(moodAnalyser));
+        } catch (MoodAnalyserException e) {
+            System.out.println(e.getMessage());
+        }
+    }
 
 }
