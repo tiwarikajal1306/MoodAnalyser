@@ -34,16 +34,12 @@ public class MoodAnalyserCheck {
     @Test
     public void messageContain_NullMood_ShouldThrowException() {
         MoodAnalyser moodAnalyser = new MoodAnalyser(null);
-        //String mood = null;
         try {
-            ExpectedException exceptionRule = ExpectedException.none();
-            exceptionRule.expect(MoodAnalyserException.class);
             moodAnalyser.analyseMood();
         } catch (MoodAnalyserException e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
     }
-
     @Test
     public void messageContain_Empty_ShouldThrowException() {
 
@@ -51,20 +47,20 @@ public class MoodAnalyserCheck {
         try {
             moodAnalyser.analyseMood();
         } catch (MoodAnalyserException e) {
-            Assert.assertEquals(MoodAnalyserException.ExceptionType.EnteredEmpty, e.type);
+            System.out.println(e.getMessage());
         }
     }
     //TC 4.1
     @Test
     public void givenMoodAnalyserClass_WhenProper_shouldReturnObject() throws MoodAnalyserException {
-        MoodAnalyser moodAnalyser = MoodAnalyserFactory.createMoodAnalyser("I am in happy mood","com.bridgelabz.MoodAnalyser",String.class);
+        MoodAnalyser moodAnalyser = MoodAnalyserFactory.createMoodAnalyser("I am in happy mood","com.bridgelabz.MoodAnalyser","String");
         Assert.assertTrue(new MoodAnalyser("I am in happy mood").equals(moodAnalyser));
     }
     //Tc4.2
     @Test
     public void givenMoodAnalyserClass_WhenNotProper_ShouldThrowException()  {
         try {
-             MoodAnalyserFactory.createMoodAnalyser("I am in happy mood","com.bridgelabz.Mood",String.class);
+             MoodAnalyserFactory.createMoodAnalyser("I am in happy mood","com.bridgelabz.Mood","String");
         } catch (MoodAnalyserException e) {
             System.out.println(e.getMessage());
         }
@@ -73,7 +69,7 @@ public class MoodAnalyserCheck {
     @Test
     public void givenMoodAnalyserMethod_WhenNotProper_ShouldThrowException()  {
         try {
-          MoodAnalyserFactory.createMoodAnalyser("I am in happy mood","com.bridgelabz.MoodAnalyser",Integer.class);
+          MoodAnalyserFactory.createMoodAnalyser("I am in happy mood","com.bridgelabz.MoodAnalyser","Integer");
         } catch (MoodAnalyserException e) {
             System.out.println(e.getMessage());
         }
