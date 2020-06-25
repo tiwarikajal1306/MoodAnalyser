@@ -58,20 +58,11 @@ public class MoodAnalyserCheck {
         }
     }
 
+
     @Test
-    public void givenMoodAnalyser_WhenProper_shouldReturnObject() {
-        MoodAnalyser moodAnalyser = null;
-        try {
-            moodAnalyser = MoodAnalyserFactory.createMoodAnalyser("I am in Happy mood");
-        } catch (MoodAnalyserException e) {
-            e.printStackTrace();
-        }
-        try {
-            String mood = moodAnalyser.analyseMood();
-            Assert.assertEquals("HAPPY", mood);
-        } catch (MoodAnalyserException e) {
-            e.printStackTrace();
-        }
+    public void givenMoodAnalyser_WhenProper_shouldReturnObject() throws MoodAnalyserException {
+        MoodAnalyser moodAnalyser=MoodAnalyserFactory.createMoodAnalyser("I am in happy mood");
+        Assert.assertEquals(new MoodAnalyser("I am in happy mood"),moodAnalyser);
     }
 }
 

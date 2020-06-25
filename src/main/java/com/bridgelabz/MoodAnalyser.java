@@ -1,5 +1,7 @@
 package com.bridgelabz;
 
+import java.util.Objects;
+
 public class MoodAnalyser {
     private String message;
 
@@ -7,7 +9,10 @@ public class MoodAnalyser {
     {
         this.message = message;
     }
-
+    public String analyseMood(String message) throws MoodAnalyserException{
+        this.message=message;
+        return analyseMood();
+    }
     public String analyseMood() throws MoodAnalyserException {
         try {
             if (message.length() == 0)
@@ -20,5 +25,12 @@ public class MoodAnalyser {
             throw new MoodAnalyserException(MoodAnalyserException.ExceptionType.EnteredNull, "Entered valid msg");
         }
 
+    }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        MoodAnalyser that = (MoodAnalyser) o;
+        return Objects.equals(message, that.message);
     }
 }
