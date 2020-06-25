@@ -25,5 +25,12 @@ public class MoodAnalyserFactory {
         }
         return null;
     }
+    public static String callAnalyseMood(MoodAnalyser moodAnalyser) throws MoodAnalyserException {
+        try {
+            return moodAnalyser.analyseMood();
+        } catch (MoodAnalyserException e) {
+            throw new MoodAnalyserException(MoodAnalyserException.ExceptionType.MethodNotFound, "Method not found");
+        }
+    }
 }
 
