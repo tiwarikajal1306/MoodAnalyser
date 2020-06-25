@@ -83,4 +83,16 @@ public class MoodAnalyserCheck {
         }
 
     }
+    //uc6.2
+    @Test
+    public void givenHappyMessage_WhenImproperMethod_ShouldThrowAnError() {
+        try {
+            MoodAnalyser moodAnalyser = MoodAnalyserReflector.createMoodAnalyser
+                    ("com.bridgelabz.MoodAnalyser", "Integer", "I am in happy mood");
+            Assert.assertEquals("HAPPY",MoodAnalyserReflector.callAnalyseMood(moodAnalyser));
+        } catch (MoodAnalyserException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
 }
