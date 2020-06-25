@@ -1,8 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.bridgelabz.MoodAnalyserCheck" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-06-25T18:26:17" hostname="KAJAL-LAPTOP" time="0.015">
+<testsuite name="com.bridgelabz.MoodAnalyserCheck" tests="12" skipped="0" failures="0" errors="0" timestamp="2020-06-25T18:34:39" hostname="KAJAL-LAPTOP" time="0.028">
   <properties/>
-  <testcase name="givenInvalidFieldName_ShouldReturnError" classname="com.bridgelabz.MoodAnalyserCheck" time="0.015"/>
-  <system-out><![CDATA[ERROR: NO SUCH FIELD
+  <testcase name="givenMoodAnalyserClass_WhenNotProper_ShouldThrowException" classname="com.bridgelabz.MoodAnalyserCheck" time="0.006"/>
+  <testcase name="messageContain_NullMood_ShouldThrowException" classname="com.bridgelabz.MoodAnalyserCheck" time="0.001"/>
+  <testcase name="givenMessage_WhenHappy_ShouldReturnHappy" classname="com.bridgelabz.MoodAnalyserCheck" time="0.011"/>
+  <testcase name="messageContain_Empty_ShouldThrowException" classname="com.bridgelabz.MoodAnalyserCheck" time="0.0"/>
+  <testcase name="givenMoodAnalyserMethod_WhenNotProper_ShouldThrowException" classname="com.bridgelabz.MoodAnalyserCheck" time="0.0"/>
+  <testcase name="givenMoodAnalyserClass_WhenProper_shouldReturnObject" classname="com.bridgelabz.MoodAnalyserCheck" time="0.0"/>
+  <testcase name="givenHappyMessage_ShouldChangeMoodDynamically_UsingReflector" classname="com.bridgelabz.MoodAnalyserCheck" time="0.001"/>
+  <testcase name="givenHappyMessage_WhenImproperMethod_ShouldThrowAnError" classname="com.bridgelabz.MoodAnalyserCheck" time="0.0"/>
+  <testcase name="messageContain_IamInHappyMood_ShouldReturn_Happy" classname="com.bridgelabz.MoodAnalyserCheck" time="0.0"/>
+  <testcase name="givenInvalidFieldName_ShouldReturnError" classname="com.bridgelabz.MoodAnalyserCheck" time="0.0"/>
+  <testcase name="givenInvalidFieldValue_WhenNull_ShouldReturnError" classname="com.bridgelabz.MoodAnalyserCheck" time="0.001"/>
+  <testcase name="messageContain_IamInSadMood_ShouldReturn_Sad" classname="com.bridgelabz.MoodAnalyserCheck" time="0.0"/>
+  <system-out><![CDATA[class not found
+Entered valid msg
+Entered valid msg
+Method not found
+Method not found
+ERROR: NO SUCH FIELD
+ERROR: Enter valid msg
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

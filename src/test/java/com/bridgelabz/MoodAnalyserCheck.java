@@ -118,5 +118,18 @@ public class MoodAnalyserCheck {
             System.out.println(e.getMessage());
         }
     }
+    //uc7.3
+    @Test
+    public void givenInvalidFieldValue_WhenNull_ShouldReturnError() {
+        try {
+            MoodAnalyser moodAnalyser = MoodAnalyserReflector.createMoodAnalyser
+                    ("com.bridgelabz.MoodAnalyser");
+            MoodAnalyserReflector.setMood(moodAnalyser,"message",null);
+            Assert.assertEquals("HAPPY",MoodAnalyserReflector.callAnalyseMood(moodAnalyser));
+        } catch (MoodAnalyserException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
 
 }

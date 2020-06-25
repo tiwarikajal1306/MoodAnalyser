@@ -41,6 +41,8 @@ public class MoodAnalyserReflector {
         }
     }
     public static void setMood(MoodAnalyser moodAnalyser,String fieldName,String fieldValue) throws MoodAnalyserException {
+        if(fieldValue==null)
+            throw new MoodAnalyserException(MoodAnalyserException.ExceptionType.EnteredNull, "ERROR: Enter valid msg");
         try
         {
             Field field = moodAnalyser.getClass().getDeclaredField(fieldName);
