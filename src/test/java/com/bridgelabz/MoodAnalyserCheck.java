@@ -57,12 +57,22 @@ public class MoodAnalyserCheck {
             Assert.assertEquals(MoodAnalyserException.ExceptionType.EnteredEmpty, e.type);
         }
     }
-
-
+    //TC 4.1
     @Test
     public void givenMoodAnalyser_WhenProper_shouldReturnObject() throws MoodAnalyserException {
-        MoodAnalyser moodAnalyser=MoodAnalyserFactory.createMoodAnalyser("I am in happy mood");
+        MoodAnalyser moodAnalyser=MoodAnalyserFactory.createMoodAnalyser("I am in happy mood","com.bridgelabz.MoodAnalyser");
         Assert.assertEquals(new MoodAnalyser("I am in happy mood"),moodAnalyser);
+    }
+    //Tc4.2
+    @Test
+    public void givenMoodAnalyser_WhenNotProper_ShouldThrowException()  {
+        MoodAnalyser moodAnalyser= null;
+        try {
+            moodAnalyser = MoodAnalyserFactory.createMoodAnalyser("I am in happy mood","com.bridgelabz.Mood");
+            Assert.assertEquals(new MoodAnalyser("I am in happy mood"),moodAnalyser);
+        } catch (MoodAnalyserException e) {
+            System.out.println(e.getMessage());
+        }
     }
 }
 
