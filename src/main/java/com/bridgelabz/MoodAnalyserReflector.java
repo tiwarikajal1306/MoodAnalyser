@@ -1,6 +1,7 @@
 package com.bridgelabz;
 
 import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 
 public class MoodAnalyserReflector {
@@ -37,6 +38,20 @@ public class MoodAnalyserReflector {
             return moodAnalyser.analyseMood();
         } catch (MoodAnalyserException e) {
             throw new MoodAnalyserException(MoodAnalyserException.ExceptionType.MethodNotFound, "Method not found");
+        }
+    }
+    public static void setMood(MoodAnalyser moodAnalyser,String fieldName,String fieldValue) throws MoodAnalyserException {
+        try
+        {
+            Field field = moodAnalyser.getClass().getDeclaredField(fieldName);
+            field.setAccessible(true);
+            field.set(moodAnalyser, fieldValue);
+        } catch (NoSuchFieldException e)
+        {
+            throw new MoodAnalyserException(MoodAnalyserException.ExceptionType.FieldNotFound, "ERROR: NO SUCH FIELD");
+        } catch (IllegalAccessException e)
+        {
+            e.printStackTrace();
         }
     }
 }
